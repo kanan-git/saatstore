@@ -1,2 +1,18 @@
 accounts - register, login, user info
 products - all items, detail item, buy
+
+# folder-i qur və daxil ol
+# python -m venv venv
+# venv\Scripts\activate
+# pip install django==4.2
+# pip freeze > requirements.txt
+# django-admin startproject core .
+# Create apps (python manage.py stratapp appname)
+# apps-i settings faylda installed_apps-e tanit
+# appname daxilinde urls.py yarat
+# modelleri qur, views qur ve urls-e elave et
+# isteye gore admin panel-e elave et
+# `python manage.py makemigrations` and `python manage.py migrate`
+# forms.py yarat
+# templates yarat
+# python manage.py runserver

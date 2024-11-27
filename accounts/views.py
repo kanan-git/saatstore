@@ -4,7 +4,7 @@ from django.contrib.auth.forms import (AuthenticationForm, UserCreationForm)
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from .models import Profile
+# from .models import Profile
 # from .forms import ProfileForm
 
 
