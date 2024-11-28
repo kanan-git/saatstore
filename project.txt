@@ -1,6 +1,11 @@
 accounts - register, login, user info
 products - all items, detail item, buy
 
+# py manage.py createsuperuser
+# py manage.py runserver
+# py manage.py makemigrations
+# py manage.py migrate
+
 # folder-i qur və daxil ol
 # python -m venv venv
 # venv\Scripts\activate
