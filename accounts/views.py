@@ -1,21 +1,24 @@
-from django.shortcuts import (render, redirect)
-from django.contrib.auth import (authenticate, login, logout)
-from django.contrib.auth.forms import (AuthenticationForm, UserCreationForm)
-from django.contrib.auth.models import User
-from django.contrib import messages
+from django.shortcuts import render
+from django.http import HttpResponse
 
-# from .models import Profile
-# from .forms import ProfileForm
+from .models import Profile
 
 
 def login(request):
-    ...
+    return HttpResponse("login")
+
 
 def logout(request):
-    ...
+    return HttpResponse("logout")
+
 
 def register(request):
-    ...
+    return HttpResponse("register")
+
 
 def profile(request):
-    ...
+    return HttpResponse("profile")
+
+
+def my_products(request):
+    return HttpResponse("my products")

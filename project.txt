@@ -1,5 +1,5 @@
-accounts - register, login, user info
-products - all items, detail item, buy
+# accounts (stores) - register, login, user_info, my_products, log_out
+# products - all_items, detail_item, buy, add_product, edit_product, remove_product
 
 # py manage.py createsuperuser
 # py manage.py runserver

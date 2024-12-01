@@ -1,5 +1,7 @@
 from django.db import models
 
+# from ..accounts.models import Profile
+
 class Product(models.Model):
     title = models.CharField(max_length=50)
     brand = models.CharField(max_length=16)
@@ -7,6 +9,8 @@ class Product(models.Model):
     description = models.TextField()
     price = models.FloatField()
     availability = models.BooleanField()
+    # store = Profile.store_name
+
 
     def __str__(self):
-        return self.brand + " " + self.title + " " + self.category + " " + self.price
+        return f'{self.brand} {self.title} {self.category} - ${self.price}USD | {self.availability}'
