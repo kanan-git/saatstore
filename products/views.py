@@ -6,7 +6,12 @@ from .models import Product
 
 def landpage(request):
     # return render(request, "Welcome to SaatStore")
-    return HttpResponse("Welcome to SaatStore")
+    # return HttpResponse("Welcome to SaatStore")
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+    return render(request, 'landpage.html', context)
 
 
 def details(request):

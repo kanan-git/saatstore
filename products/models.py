@@ -1,6 +1,6 @@
 from django.db import models
 
-# from ..accounts.models import Profile
+# from accounts.models import Profile
 
 class Product(models.Model):
     title = models.CharField(max_length=50)
