@@ -8,7 +8,9 @@ class Product(models.Model):
     category = models.CharField(max_length=16)
     description = models.TextField()
     price = models.FloatField()
-    availability = models.BooleanField()
+    availability = models.BooleanField(default=True)
+    # image_path = models.ImageField(upload_to='media', null=True, blank=True)
+    image_path = 'https://picsum.photos/200'
     # store = Profile.store_name
 
 
