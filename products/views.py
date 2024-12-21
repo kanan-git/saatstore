@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import (render, redirect)
 from django.http import HttpResponse
 
 from .models import Product
@@ -69,13 +69,19 @@ def landpage(request):
             'image_path': '949-200x200.jpg',
         },
     )
-    count = 0
-    for _ in products:
-        count += 1
     context = {
-        'products': products,
-        'counter': count
+        'products': products
     }
+
+    # if request.method == 'POST':
+    #     form = ProductForm(request.data)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('landpage')
+    #     print("its POST")
+    # elif request.method == 'GET':
+    #     print("its GET")
+    
     return render(request, 'landpage.html', context)
 
 
