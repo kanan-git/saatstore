@@ -48,17 +48,17 @@
         <div class="container text-center mt-3" style="display: flex; width: 100%; justify-content: center; border: 1px solid rgba(0,0,0,5%);">
             <div class="row row-cols-4 d-flex" style="width: 90%; gap: 10px;">
                 {% for item in products %}
-                    <div class="card col" style="width: 16rem; padding: 5px;">
-                        <!-- <img class="card-img-top" style="width: 18rem;" src='{{item.image_path}}' alt='img_{{item.title}}'> -->
-                        <img class="card-img-top" style="width: 100%;" src='{% static "img/"|add:item.image_path %}' alt='img_{{item.title}}'>
-                        <div class="card-body">
-                            <h3 class="card-title"> {{item.title}} </h3>
-                            <p class="card-text"> {{item.brand}} </p>
-                            <!-- <p class="card-text"> {{item.category}} </p> -->
-                            <!-- <p class="card-text"> {{item.description}} </p> -->
-                            <strong> ${{item.price}} USD </strong>
-                        </div>
-                    </div>
+                  <a href="{% url 'details' item.id %}" class="card col" style="width: 16rem; padding: 5px;">
+                      <img class="card-img-top" style="width: 18rem;" src='{{item.image_path}}' alt='img_{{item.title}}'>
+                      <!-- <img class="card-img-top" style="width: 100%;" src='{% static "img/"|add:item.image_path %}' alt='img_{{item.title}}'> -->
+                      <div class="card-body">
+                          <h3 class="card-title"> {{item.title}} </h3>
+                          <p class="card-text"> {{item.brand}} </p>
+                          <!-- <p class="card-text"> {{item.category}} </p> -->
+                          <!-- <p class="card-text"> {{item.description}} </p> -->
+                          <strong> ${{item.price}} USD </strong>
+                      </div>
+                  </a>
                 {% endfor %}
             </div>
         </div>
