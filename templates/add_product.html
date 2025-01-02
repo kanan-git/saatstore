@@ -10,24 +10,12 @@
     </head>
     <body>
         <div class="container">
-            <p class="title">Products TOTALCOUNTHERE</p>
-
             <form method="post">
                 {% csrf_token %}
 
-                <div> {{ form.as_p }} </div>
+                <div> {{ data.as_p }} </div>
 
-                <!-- <h1> {{ form }} </h1>
-
-                <p> {{ form.title }} </p>
-                <p> {{ form.brand }} </p>
-                <p> {{ form.category }} </p>
-                <p> {{ form.description }} </p>
-                <p> {{ form.price }} </p>
-                <p> {{ form.availability }} </p>
-                <p> {{ form.image_path }} </p> -->
-
-                <input type="submit">
+                <input type='submit' value="Add New Product">
             </form>
         </div>
 

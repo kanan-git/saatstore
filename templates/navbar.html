@@ -1,44 +1,44 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">SAATSTORE</a>
+        <a class="navbar-brand" href="{% url 'landpage' %}"> SAATSTORE </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'landpage' %}"> Home </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Products</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'products_list' %}"> Products </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="{% url 'about' %}"> About </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{% url 'contact' %}"> Contact </a>
                 </li>
 
                 <li class="nav-item">
                     <form class="d-flex me-auto mb-2 mb-lg-0" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-outline-success" type="submit"> Search </button>
                     </form>
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Sign in
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="#">Login</a>
+                            <a class="dropdown-item" href="{% url 'login1' %}"> Login </a>
                         </li>
                         <li>
                             <hr class="dropdown-divider"></li>
                         <li>
                         <li>
-                            <a class="dropdown-item" href="#">Register</a>
+                            <a class="dropdown-item" href="{% url 'register1' %}"> Register </a>
                         </li>
                     </ul>
                 </li>

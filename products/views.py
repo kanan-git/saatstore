@@ -1,5 +1,6 @@
 from django.shortcuts import (render, redirect, get_object_or_404)
-from django.http import HttpResponse
+from django.contrib import messages
+# from django.http import HttpResponse
 
 from .models import Product
 from .forms import ProductForm
@@ -92,8 +93,8 @@ def add_product(request):
     # productsCount = ...
     if request.method == "POST":
         form = ProductForm(request.POST)
-        print(request.method)
-        print(form.is_valid())
+        # print(request.method)
+        # print(form.is_valid())
         if form.is_valid():
             form.save()
             return redirect('landpage') # just for test for now, when 'dashboard' is ready, redirect to there | NOTE: try landpage.html if landpage doesn't work
@@ -101,9 +102,9 @@ def add_product(request):
         form = {
             'data': ProductForm()
         }
-        print(request.method)
-        print(form.is_valid())
-        print(request)
+        # print(request.method)
+        # print(form.is_valid())
+        # print(request)
     return render(request, 'add_product.html', form)
 
 
@@ -123,11 +124,37 @@ def edit_product(request, pk):
 
 
 def remove_product(request, pk):
-    return render(request, '.html')
+    product = get_object_or_404(Product, id=pk)
+    product.delete()
+    messages.success(request, 'Product successfully deleted.')
+    return redirect('products_list')
 
 
 def all_products(request):
     context = {
-        'list': Product.objects.all()
+        'list': Product.objects.all(),
+        'count': Product.objects.all().__len__()
     }
     return render(request, 'store.html', context)
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
+def contact(request):
+    return render(request, 'contactus.html')
+
+
+def login1(request):
+    context = {
+        'selection': 'login'
+    }
+    return render(request, 'authentication.html', context)
+
+
+def register1(request):
+    context = {
+        'selection': 'register'
+    }
+    return render(request, 'authentication.html', context)
