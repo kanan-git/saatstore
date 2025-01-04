@@ -1,6 +1,7 @@
 from django.shortcuts import (render, redirect, get_object_or_404)
 from django.contrib import messages
-# from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 from .models import Product
 from .forms import ProductForm
@@ -73,7 +74,7 @@ def landpage(request):
     context = {
         'products': products
     }
-    return render(request, 'landpage.html', context)
+    return render(request, 'products/landpage.html', context)
 
 
 def details(request, id):
@@ -82,13 +83,13 @@ def details(request, id):
     context = {
         'details': form
     }
-    return render(request, 'details.html', context)
+    return render(request, 'products/details.html', context)
 
 
 def buy(request):
-    return render(request, 'buy.html')
+    return render(request, 'products/buy.html')
 
-
+@login_required
 def add_product(request):
     # productsCount = ...
     if request.method == "POST":
@@ -97,7 +98,7 @@ def add_product(request):
         # print(form.is_valid())
         if form.is_valid():
             form.save()
-            return redirect('landpage') # just for test for now, when 'dashboard' is ready, redirect to there | NOTE: try landpage.html if landpage doesn't work
+            return redirect('products/landpage')
     elif request.method == "GET":
         form = {
             'data': ProductForm()
@@ -105,7 +106,7 @@ def add_product(request):
         # print(request.method)
         # print(form.is_valid())
         # print(request)
-    return render(request, 'add_product.html', form)
+    return render(request, 'products/add_product.html', form)
 
 
 def edit_product(request, pk):
@@ -114,20 +115,20 @@ def edit_product(request, pk):
         form = ProductForm(request.POST, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('details', product.id)
+            return redirect('products/details', product.id)
     else:
         form = ProductForm(instance=product)
         context = {
             'form': form
         }
-    return render(request, 'edit_product.html', context)
+    return render(request, 'products/edit_product.html', context)
 
 
 def remove_product(request, pk):
     product = get_object_or_404(Product, id=pk)
     product.delete()
     messages.success(request, 'Product successfully deleted.')
-    return redirect('products_list')
+    return redirect('products/products_list')
 
 
 def all_products(request):
@@ -135,26 +136,12 @@ def all_products(request):
         'list': Product.objects.all(),
         'count': Product.objects.all().__len__()
     }
-    return render(request, 'store.html', context)
+    return render(request, 'products/store.html', context)
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'products/about.html')
 
 
 def contact(request):
-    return render(request, 'contactus.html')
-
-
-def login1(request):
-    context = {
-        'selection': 'login'
-    }
-    return render(request, 'authentication.html', context)
-
-
-def register1(request):
-    context = {
-        'selection': 'register'
-    }
-    return render(request, 'authentication.html', context)
+    return render(request, 'products/contactus.html')

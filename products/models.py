@@ -1,6 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# from accounts.models import Profile
+# models.OneToOneField() - x2x
+# models.ForeignKey() - x2n
+# models.ManyToMany() - n2n
+
 
 class Product(models.Model):
     title = models.CharField(max_length=50)
@@ -11,7 +15,7 @@ class Product(models.Model):
     availability = models.BooleanField(default=True)
     # image_path = models.ImageField(upload_to='media', null=True, blank=True)
     image_path = 'https://picsum.photos/200'
-    # store = Profile.store_name
+    store = models.OneToOneField(User, on_delete=models.SET_NULL, null=True, blank=True)
 
 
     def __str__(self):
